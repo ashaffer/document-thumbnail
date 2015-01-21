@@ -4,6 +4,7 @@ var input = process.argv[idx];
 var output = process.argv[idx + 1];
 
 docThumb(input, output, function(err) {
+  console.log('here', err);
   if(err) throw err;
   console.log('completed!');
 });

@@ -8,6 +8,9 @@
   },
   "author": "",
   "license": "ISC",
+  "bin": {
+    "docthumb": "./bin/cli"
+  },
   "dependencies": {
     "file-type": "^2.0.2",
     "gm": "^1.17.0",

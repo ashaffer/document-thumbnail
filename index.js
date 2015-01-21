@@ -6,24 +6,25 @@ var fs = require('fs');
 var convertToPdf = ['doc', 'docx', 'ppt'];
 
 
-function pdfThumbnail(pdf) {
+function pdfThumbnail(pdf, output) {
   fs.writeFileSync('tmp.pdf', pdf);
   gm('tmp.pdf')
     .setFormat('png')
-    .write(fs.createWriteStream('tmp.png'), function(err) {
-      console.log('err', err);
+    .write(fs.createWriteStream(output), function(err) {
+      if(err) return cb(err);
+      cb();
     });
 }
 
-module.exports = function docThumb(str, cb) {
+module.exports = function docThumb(input, output, cb) {
   var file = fs.readFileSync(str);
   var type = fileType(file);
 
   if(convertToPdf.indexOf(type.ext) !== -1) {
     unoconv(str, 'pdf', function(err, res) {
-      if(err) throw err;
-      pdfThumbnail(res);
+      if(err) return cb(err);
+      pdfThumbnail(res, output, cb);
     });
   } else
-    pdfThumbnail(file);
+    pdfThumbnail(file, output, cb);
 };

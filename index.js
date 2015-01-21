@@ -19,7 +19,7 @@ function pdfThumbnail(pdf, output) {
 module.exports = function docThumb(input, output, cb) {
   var file = fs.readFileSync(input);
   var type = fileType(file);
-
+  console.log('type', type);
   if(convertToPdf.indexOf(type.ext) !== -1) {
     unoconv(input, 'pdf', function(err, res) {
       if(err) return cb(err);

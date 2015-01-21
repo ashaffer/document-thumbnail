@@ -12,8 +12,10 @@
     "docthumb": "./bin/cli"
   },
   "dependencies": {
+    "convert-to-pdf": "git://github.com/ashaffer/convert-to-pdf",
     "file-type": "^2.0.2",
     "gm": "^1.17.0",
+    "pdf-thumbnail": "git://github.com/ashaffer/pdf-thumbnail",
     "unoconv": "^0.1.2"
   }
 }

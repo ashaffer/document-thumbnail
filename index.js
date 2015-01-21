@@ -6,7 +6,7 @@ var fs = require('fs');
 var convertToPdf = ['doc', 'docx', 'ppt'];
 
 
-function pdfThumbnail(pdf, output) {
+function pdfThumbnail(pdf, output, cb) {
   fs.writeFileSync('tmp.pdf', pdf);
   gm('tmp.pdf')
     .setFormat('png')

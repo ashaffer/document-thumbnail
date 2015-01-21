@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "bin": {
-    "docthumb": "./bin/cli"
+    "docthumb": "./bin/cli.js"
   },
   "dependencies": {
     "convert-to-pdf": "git://github.com/ashaffer/convert-to-pdf",
